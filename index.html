@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Ipeh! 🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #c4b5fd 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.8" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .birthday-hero {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px 30px;
+            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 40px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .cake-emoji {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            background: linear-gradient(45deg, #fff, #e9d5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 0 4px 20px rgba(139, 92, 246, 0.5);
+        }
+
+        .name-highlight {
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .age-info {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: #e9d5ff;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: #fff;
+            line-height: 1.7;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        section.photos {
+      max-width: 700px;
+      margin: 0 auto;
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    section.photos img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      object-fit: cover;
+      height: 250px;
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: #e9d5ff;
+            margin-bottom: 15px;
+        }
+
+        .upload-label {
+            color: #fff;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .upload-subtext {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            animation: float-up 4s linear infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                opacity: 1;
+                transform: translateY(100vh) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+
+        .wish-button {
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.4);
+            margin-top: 20px;
+        }
+
+        .wish-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+                padding-top: 60px;
+            }
+            
+            .birthday-hero {
+                padding: 30px 20px;
+                margin-bottom: 30px;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+        }
+
+        .date-highlight {
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="heartsContainer"></div>
+     <audio autoplay controls>
+	<source src="sangil.mp3" type="audio/mpeg">
+  	</audio>
+    <div class="container">
+        <div class="birthday-hero">
+            <div class="cake-emoji">🎂✨🎉</div>
+            <h1>Happy Birthday <span class="name-highlight">Ipeh!</span></h1>
+            <p class="age-info">
+                LATIFAH MAULIDA • <span class="date-highlight">29 Mei 2001</span> 
+                <br><i class="fas fa-heart" style="color: #fbbf24;"></i> 23 Tahun Penuh Berkah ✨
+            </p>
+            
+            <div class="message">
+                Onty Ipeh ultah ciyeee, hepi besdey tuyu 🎈<br><br>
+                
+                Semoga di usia 23 ini, semua mimpi-mimpimu jadi kenyataan (cepet nikah), hatimu selalu dipenuhi kebahagiaan, 
+                dan Allah selalu jaga langkahmu di setiap perjalanan. Tetap jadi Ipeh yang ceria, 
+                penuh semangat, dan selalu menebar kebaikan ya! 🥰<br><br>
+                
+                <i>"Semoga Latifah Maulida diberkahi dengan umur yang panjang dan penuh kebaikan, dan dikelilingi orang-orang yang mencintainya."</i>
+		<br><br>dari Mba @niken.nh cantik ✨</br></br>
+            </div>
+        </div>
+
+         <section class="photos" aria-label="Photos of Ippang">
+    <img src="ipeh1.jpeg" alt="ipeh madang" />
+    <img src="ipeh2.jpeg" alt="ipeh edan" />
+    <img src="ipeh3.jpeg" alt="ipeh turu" />
+    <img src="ipeh4.jpeg" alt="Ipeh bu gen" />
+    <img src="ippang5.jpeg" alt="Ipeh kocak" />
+    <img src="ipang6.jpeg" alt="Ipeh plenger11:37 28/04/2026" />
+    </section>
+
+
+    <script>
+        function previewPhoto(input, previewId) {
+            const preview = document.getElementById(previewId);
+            const file = input.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+                input.parentElement.classList.add('has-photo');
+            }
+            
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function createHearts() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    createHeart(heartsContainer);
+                }, i * 100);
+            }
+        }
+
+        function createHeart(container) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = ['💜', '💖', '💕', '✨', '🎉'][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            
+            container.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // Auto create hearts on load
+        window.addEventListener('load', () => {
+            setTimeout(() => createHearts(), 1000);
+        });
+
+        // Responsive viewport fix
+        let vh = 0;
+        const setVh = () => {
+            vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        setVh();
+        window.addEventListener('resize', setVh);
+    </script>
+</body>
+</html>
